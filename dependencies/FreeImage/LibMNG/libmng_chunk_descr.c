@@ -2749,7 +2749,7 @@ MNG_C_SPECIALFUNC (mng_special_iccp)
       mng_chunk_header chunk_srgb;
       mng_get_chunkheader (MNG_UINT_sRGB, &chunk_srgb);
                                        /* pretend it's an sRGB chunk then ! */
-      iRetcode = mng_read_general (pData, &chunk_srgb, 1, (mng_ptr)"0", &pDummy);
+      iRetcode = mng_read_general (pData, &chunk_srgb, 1, (mng_ptr)"0", (void**)&pDummy);
       if (iRetcode)                    /* on error bail out */
         return iRetcode;
 
